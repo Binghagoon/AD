@@ -14,6 +14,10 @@ public class MonsterManager : MonoBehaviour
     float timer = 0;
 
     List<(Vector3, Vector3)> squares = new List<(Vector3, Vector3)>();
+    public void removeMonster(Monster monsterScript)
+    {
+        monsters.Remove(monsterScript);
+    }
 
     // a, b are vetices of the square
     public void addSquare(Vector3 a, Vector3 b)
@@ -49,10 +53,12 @@ public class MonsterManager : MonoBehaviour
         monster.transform.position = RandomPositionInSquare(a, b);
         Monster monsterScript = monster.GetComponent<Monster>();
         monsterScript.Player = player.transform;
+        monsterScript.MonsterManager = this;
         monster.transform.parent = transform;
         monsters.Add(monsterScript);
         return monster;
     }
+    
 
     // Update is called once per frame
     void Update()

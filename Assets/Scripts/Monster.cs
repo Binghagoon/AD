@@ -8,9 +8,11 @@ public class Monster : MonoBehaviour
     int hp;
     [SerializeField]
     float speed;
+    MonsterManager manager;
     Transform player;
     //Player setter
     public Transform Player { set { player = value; } }
+    public MonsterManager MonsterManager { set { MonsterManager = value; } }
     Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class Monster : MonoBehaviour
         {
             anim.SetInteger("Walk", 0);
             anim.SetTrigger("Die");
+            manager.removeMonster(this);
             Destroy(gameObject, 2f);
         }
     }
