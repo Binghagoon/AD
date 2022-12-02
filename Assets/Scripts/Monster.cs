@@ -19,6 +19,17 @@ public class Monster : MonoBehaviour
         anim.SetInteger("Walk", 1);
     }
 
+    public void OnDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            anim.SetInteger("Walk", 0);
+            anim.SetTrigger("Die");
+            Destroy(gameObject, 2f);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
