@@ -9,11 +9,14 @@ public class UFOlikeMovement : WeaponMovement
 
     public override void MoveToTarget(float deltatime, Transform target)
     {
-        Debug.Log("MissileMovement MoveToTarget");
+        //Debug.Log("MissileMovement MoveToTarget");
 
         
         Vector3 dir = (target.position - transform.position).normalized;
-        transform.Translate((dir * Speed * deltatime));
-
+        //transform.Translate((dir * Speed * deltatime));
+        transform.position += ((dir * Speed * deltatime));
+        transform.LookAt(target.position);
+        //Quaternion q = Quaternion.LookRotation(transform.);
+        //transform.rotation = q;
     }
 }

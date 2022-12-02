@@ -8,10 +8,14 @@ using UnityEngine;
 public class GuidedWeaponBehaviour : WeaponBehaviour
 {
     [SerializeField]
-    Transform target;
+    int AttackCount = 1;
+
+    Monster target;
     bool IsTracing;
     bool isHit = false;
     WeaponMovement movement;
+
+    
     public override void StartAttack()
     {
         FindTarget();
@@ -29,6 +33,9 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
         //TODO:
         // Find Monster
 
+        target = FindObjectOfType<Monster>();
+        
+        Debug.Log(target);
     }
 
     /// <summary>
@@ -36,7 +43,11 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     /// </summary>
     private void MoveToTarget(float deltatime)
     {
-        movement.MoveToTarget(deltatime, target);
+        if(target != null)
+        {
+            movement.MoveToTarget(deltatime, target.transform);
+        }
+        
     }
 
     private bool IsHit()
@@ -48,14 +59,27 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     /// </summary>
     private void OnHitTarget()
     {
-        FindTarget();
-        isHit = false;
+        Destroy(target.gameObject); //TMP
+        AttackCount--;
+        if (AttackCount == 0)
+        {
+            
+            Destroy(gameObject);
+        }
+        else
+        {
+            
+            target = null;
+            
+            isHit = false;
+        }
+
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.root == target.root)
+        if(other.transform.root == target.transform.root)
         {
             //OnHit
             isHit = true;
@@ -66,16 +90,21 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     void Start()
     {
         movement = GetComponent<WeaponMovement>();
-        Debug.Log(movement);
+        //Debug.Log(movement);
         StartAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+        {
+            FindTarget();
+        }
+
         if (IsTracing)
         {
-            Debug.Log("AA");
+            //Debug.Log("AA");
             MoveToTarget(Time.deltaTime);
         }
 
