@@ -61,7 +61,7 @@ public class MonsterManager : MonoBehaviour
 
         if (timer > spawnTime)
         {
-            timer = 0;
+            timer -= spawnTime;
             (Vector3, Vector3) square = squares[Random.Range(0, squares.Count)];
             Debug.Log("Spawn a monster from " + square);
             SpawnMonsterInSquare(square.Item1, square.Item2);
