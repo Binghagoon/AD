@@ -6,7 +6,7 @@ public class MonsterManager : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
-    Monster[] monsters;
+    List<Monster> monsters;
     [SerializeField]
     GameObject[] monsterPrefab;
     [SerializeField]
@@ -50,6 +50,7 @@ public class MonsterManager : MonoBehaviour
         Monster monsterScript = monster.GetComponent<Monster>();
         monsterScript.Player = player.transform;
         monster.transform.parent = transform;
+        monsters.Add(monsterScript);
         return monster;
     }
 
