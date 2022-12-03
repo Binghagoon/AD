@@ -10,21 +10,25 @@ public class LauncherBehaviour : WeaponBehaviour
     [SerializeField]
     Transform[] LaunchPositions;
     [SerializeField]
-    float LaunchDelay = 2.0f;
+    float[] LaunchDelayCycle = { 2.0f };
     [SerializeField]
     float NumberOfLaunchAtOnce = 2;
 
+    float LaunchDelay;
     int nextLaunchPosition = 0;
+    int nextDelay = 0;
 
     float timer = 0;
+
+    bool isLaunching;
     public override void StartAttack()
     {
-        throw new System.NotImplementedException();
+        isLaunching = true;
     }
 
     public override void StopAttack()
     {
-        throw new System.NotImplementedException();
+        isLaunching = false;
     }
 
     private Transform getNextLaunchPosition()
@@ -40,6 +44,12 @@ public class LauncherBehaviour : WeaponBehaviour
         }
     }
 
+    private float GetNextDelay()
+    {
+        nextDelay %= LaunchDelayCycle.Length;
+        return LaunchDelayCycle[nextDelay++];
+    }
+
     private void Launch()
     {
         for (int i=0;i< NumberOfLaunchAtOnce; i++)
@@ -53,6 +63,8 @@ public class LauncherBehaviour : WeaponBehaviour
     void Start()
     {
         timer = 0;
+        LaunchDelay = GetNextDelay();
+        StartAttack();//tmp
     }
 
     // Update is called once per frame
@@ -63,6 +75,7 @@ public class LauncherBehaviour : WeaponBehaviour
         while(timer>= LaunchDelay)
         {
             timer -= LaunchDelay;
+            LaunchDelay = GetNextDelay();
             Launch();
         }
 
