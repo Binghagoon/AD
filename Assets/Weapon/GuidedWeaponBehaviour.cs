@@ -32,8 +32,15 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     {
         //TODO:
         // Find Monster
-
-        target = FindObjectOfType<Monster>();
+        Monster[] tgs = FindObjectsOfType<Monster>();
+        foreach (Monster t in tgs)
+        {
+            if (t.IsValide)
+            {
+                target = t;
+                break;
+            }
+        }
         
         Debug.Log(target);
     }
@@ -59,7 +66,10 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     /// </summary>
     private void OnHitTarget()
     {
+        Debug.Log("OnHitTarget");
+        //target.OnDamage(Attack); //todo
         Destroy(target.gameObject); //TMP
+        Debug.Log("OnHitTarget2");
         AttackCount--;
         if (AttackCount == 0)
         {
@@ -79,10 +89,12 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if(other.transform.root == target.transform.root)
         {
             //OnHit
-            isHit = true;
+            //isHit = true;
+            OnHitTarget();
         }
     }
 
@@ -97,6 +109,11 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!target.IsValide)
+        {
+            target = null;
+        }
+
         if(target == null)
         {
             FindTarget();
@@ -108,10 +125,6 @@ public class GuidedWeaponBehaviour : WeaponBehaviour
             MoveToTarget(Time.deltaTime);
         }
 
-        if (IsHit())
-        {
-            OnHitTarget();
-        }
         
     }
 }
