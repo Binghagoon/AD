@@ -33,7 +33,7 @@ public class EquipDataButton : MonoBehaviour
         ID = equipData.ID;
 
         Button button = GetComponent<Button>();
-        button.interactable = equipData.isValid;
+        //button.interactable = equipData.isValid;
 
         mainUi = _mainUi;
     }
