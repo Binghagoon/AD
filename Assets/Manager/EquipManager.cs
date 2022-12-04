@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 전체 장비 정보
+/// </summary>
 [System.Serializable]
 public struct EquipData{
     public GameObject prefab;
     public Sprite icon;
     public bool isValid;
+    public int ID;
 }
 
 public class EquipManager : Singleton<EquipManager>
