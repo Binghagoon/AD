@@ -13,4 +13,9 @@ public class WeaponMovement : MonoBehaviour
     {
 
     }
+
+    public virtual void SetTarget(Transform target)
+    {
+
+    }
 }

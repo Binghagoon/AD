@@ -5,84 +5,95 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(WeaponMovement))]
 
-public class GuidedWeaponBehaviour : WeaponBehaviour
+public class GuidedWeaponBehaviour : ProjectileBehaviourScript
 {
     [SerializeField]
-    Transform target;
-    bool IsTracing;
+    int AttackCount = 1;
+    [SerializeField]
+    float LifeTime = 10;
+
     bool isHit = false;
     WeaponMovement movement;
+
     public override void StartAttack()
     {
-        FindTarget();
+        base.StartAttack();
 
-        IsTracing = true;
+        SetTarget(target);
+
+        Destroy(gameObject, LifeTime); //SetLifeTimeTimer
     }
 
-    public override void StopAttack()
-    {
-        IsTracing = false;
-    }
-
-    private void FindTarget()
-    {
-        //TODO:
-        // Find Monster
-
-    }
 
     /// <summary>
     /// Must be Implemented
     /// </summary>
     private void MoveToTarget(float deltatime)
     {
-        movement.MoveToTarget(deltatime, target);
+        if(target != null)
+        {
+            movement.MoveToTarget(deltatime, target.transform);
+        }
+        
+    }
+
+    private void SetTarget(Monster target)
+    {
+        movement.SetTarget(target.transform);
     }
 
     private bool IsHit()
     {
         return isHit;
     }
-    /// <summary>
-    /// can me changed
-    /// </summary>
-    private void OnHitTarget()
-    {
-        FindTarget();
-        isHit = false;
-    }
 
-
-    private void OnTriggerEnter(Collider other)
+    protected override void OnHitTarget()
     {
-        if(other.transform.root == target.root)
+        base.OnHitTarget();
+        AttackCount--;
+        if (AttackCount == 0)
         {
-            //OnHit
-            isHit = true;
+
+            Destroy(gameObject);
         }
+        else
+        {
+
+            target = null;
+
+            isHit = false;
+        }
+
     }
+
 
     // Start is called before the first frame update
     void Start()
     {
         movement = GetComponent<WeaponMovement>();
-        Debug.Log(movement);
+        //Debug.Log(movement);
         StartAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsTracing)
+        if (!target.IsValide)
         {
-            Debug.Log("AA");
+            target = null;
+        }
+
+        if(target == null)
+        {
+            FindTarget();
+        }
+
+        if (IsLaunched)
+        {
+            //Debug.Log("AA");
             MoveToTarget(Time.deltaTime);
         }
 
-        if (IsHit())
-        {
-            OnHitTarget();
-        }
         
     }
 }
