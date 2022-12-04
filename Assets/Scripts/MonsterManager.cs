@@ -19,6 +19,12 @@ public class MonsterManager : MonoBehaviour
         monsters.Remove(monsterScript);
     }
 
+    // 죽지 않은 몬스터를 반환하는 함수
+    public List<Monster> getMonsters()
+    {
+        return new List<Monster>(monsters);
+    }
+
     // a, b are vetices of the square
     public void addSquare(Vector3 a, Vector3 b)
     {
