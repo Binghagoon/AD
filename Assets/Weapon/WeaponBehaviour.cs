@@ -11,4 +11,8 @@ public abstract class WeaponBehaviour : MonoBehaviour
     public abstract void StartAttack();
     public abstract void StopAttack();
 
+    public void SetAttack(int attack)
+    {
+        Attack = attack;
+    }
 }

@@ -56,7 +56,10 @@ public class LauncherBehaviour : WeaponBehaviour
         {
             Transform next = getNextLaunchPosition();
 
-            Instantiate(prefeb, next);
+            WeaponBehaviour newweapon = Instantiate(prefeb, next).GetComponent<WeaponBehaviour>();
+
+            newweapon.SetAttack(Attack);
+
         }
     }
 
