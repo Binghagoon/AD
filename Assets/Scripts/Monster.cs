@@ -8,11 +8,11 @@ public class Monster : MonoBehaviour
     int hp;
     [SerializeField]
     float speed;
-    MonsterManager manager;
     Transform player;
+    MonsterManager manager;
     //Player setter
     public Transform Player { set { player = value; } }
-    public MonsterManager MonsterManager { set { MonsterManager = value; } }
+    public MonsterManager MonsterManager { set { manager = value; } }
     Animator anim;
     // Start is called before the first frame update
     void Start()

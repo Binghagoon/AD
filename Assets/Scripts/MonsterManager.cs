@@ -6,7 +6,7 @@ public class MonsterManager : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
-    List<Monster> monsters;
+    List<Monster> monsters = new List<Monster>();
     [SerializeField]
     GameObject[] monsterPrefab;
     [SerializeField]
@@ -58,7 +58,7 @@ public class MonsterManager : MonoBehaviour
         monsters.Add(monsterScript);
         return monster;
     }
-    
+
 
     // Update is called once per frame
     void Update()
