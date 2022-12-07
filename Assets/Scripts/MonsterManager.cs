@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
+    public bool spawnerActive = false;
     [SerializeField]
     GameObject player;
     List<Monster> monsters = new List<Monster>();
@@ -11,6 +12,8 @@ public class MonsterManager : MonoBehaviour
     GameObject[] monsterPrefab;
     [SerializeField]
     float spawnTime = 0.5f;
+    [SerializeField]
+    float size = 0.1f;
     float timer = 0;
 
     List<(Vector3, Vector3)> squares = new List<(Vector3, Vector3)>();
@@ -56,6 +59,7 @@ public class MonsterManager : MonoBehaviour
     {
         int monsterIndex = Random.Range(0, monsterPrefab.Length);
         GameObject monster = Instantiate(monsterPrefab[monsterIndex]);
+        monster.transform.localScale *= size;       //Shrinking size for VR
         monster.transform.position = RandomPositionInSquare(a, b);
         Monster monsterScript = monster.GetComponent<Monster>();
         monsterScript.Player = player.transform;
@@ -74,9 +78,12 @@ public class MonsterManager : MonoBehaviour
         if (timer > spawnTime)
         {
             timer -= spawnTime;
-            (Vector3, Vector3) square = squares[Random.Range(0, squares.Count)];
-            Debug.Log("Spawn a monster from " + square);
-            SpawnMonsterInSquare(square.Item1, square.Item2);
+            if(spawnerActive)
+            {
+                (Vector3, Vector3) square = squares[Random.Range(0, squares.Count)];
+                Debug.Log("Spawn a monster from " + square);
+                SpawnMonsterInSquare(square.Item1, square.Item2);
+            }
         }
     }
 }
