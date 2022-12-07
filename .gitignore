@@ -61,3 +61,6 @@ crashlytics-build.properties
 
 # VS Code json file
 .vscode/
+
+# Build generated files
+*_ButDontShipItWithYourGame/
