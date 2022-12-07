@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
+    public bool spawnerActive = false;
     [SerializeField]
     GameObject player;
     List<Monster> monsters = new List<Monster>();
@@ -74,9 +75,12 @@ public class MonsterManager : MonoBehaviour
         if (timer > spawnTime)
         {
             timer -= spawnTime;
-            (Vector3, Vector3) square = squares[Random.Range(0, squares.Count)];
-            Debug.Log("Spawn a monster from " + square);
-            SpawnMonsterInSquare(square.Item1, square.Item2);
+            if(spawnerActive)
+            {
+                (Vector3, Vector3) square = squares[Random.Range(0, squares.Count)];
+                Debug.Log("Spawn a monster from " + square);
+                SpawnMonsterInSquare(square.Item1, square.Item2);
+            }
         }
     }
 }
