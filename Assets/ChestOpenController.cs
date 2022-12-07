@@ -10,8 +10,7 @@ public class ChestOpenController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // TODO: 요 부분 추후 흔들기 상호작용 시 열림으로 수정
-        OpenChest();
+
     }
 
     public void OpenChest()
