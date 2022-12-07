@@ -12,6 +12,8 @@ public class MonsterManager : MonoBehaviour
     GameObject[] monsterPrefab;
     [SerializeField]
     float spawnTime = 0.5f;
+    [SerializeField]
+    float size = 0.1f;
     float timer = 0;
 
     List<(Vector3, Vector3)> squares = new List<(Vector3, Vector3)>();
@@ -57,6 +59,7 @@ public class MonsterManager : MonoBehaviour
     {
         int monsterIndex = Random.Range(0, monsterPrefab.Length);
         GameObject monster = Instantiate(monsterPrefab[monsterIndex]);
+        monster.transform.localScale *= size;       //Shrinking size for VR
         monster.transform.position = RandomPositionInSquare(a, b);
         Monster monsterScript = monster.GetComponent<Monster>();
         monsterScript.Player = player.transform;
