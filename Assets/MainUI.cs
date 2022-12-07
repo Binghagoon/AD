@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
     [SerializeField]
@@ -52,7 +52,7 @@ public class MainUI : MonoBehaviour
 
     public void OnDungeonClicked()
     {
-        Debug.Log("OnDungeonClicked");
+        SceneManager.LoadScene("ArDungeon");
     }
 
     public void OnEquipDataButtonClicked(int ID)

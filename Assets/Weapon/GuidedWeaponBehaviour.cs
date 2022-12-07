@@ -78,7 +78,7 @@ public class GuidedWeaponBehaviour : ProjectileBehaviourScript
     // Update is called once per frame
     void Update()
     {
-        if (!target.IsValide)
+        if (target != null&& !target.IsValide)
         {
             target = null;
         }
