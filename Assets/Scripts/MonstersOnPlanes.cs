@@ -44,7 +44,8 @@ public class MonstersOnPlanes : MonoBehaviour
     void Update()
     {
         TrackableCollection<ARPlane> trackables = planeManager.trackables;
-        if (trackables.count != planeCount)
+        monsterManager.spawnerActive = planeCount > 0;
+        if (trackables.count > planeCount)
         {
             planeCount = trackables.count;
             foreach (var plane in trackables)
@@ -55,8 +56,26 @@ public class MonstersOnPlanes : MonoBehaviour
                     squares.Add(square);
                     monsterManager.addSquare(square.Item1, square.Item2);
                 }
-                //monsterManager.addSquare(plane.center,));
             }
+        }
+        else if (trackables.count < planeCount)
+        {
+            planeCount = trackables.count;
+            List<int> squareNum = new List<int>();
+            foreach (var plane in trackables)
+            {
+                (Vector3, Vector3) square = ReturnVerticesOfRactangle(plane.center, plane.size, plane.normal);
+                squareNum.Add(squares.IndexOf(square));
+            }
+            foreach(var square in squares)
+            {
+                if(!squareNum.Contains(squares.IndexOf(square)))
+                {
+                    squares.Remove(square);
+                    monsterManager.removeSquare(square.Item1, square.Item2);
+                }
+            }
+            //Is that good approach?
         }
     }
 }
