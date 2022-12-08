@@ -19,7 +19,8 @@ public class Touched : MonoBehaviour
 
     }
 
-    // ÇÊ¿äÇÑµ¥¼­ ºÎ¸£¸é »óÀÚ Èçµé¸®°í Á» ÀÖ´Ù°¡ ¿­¸²
+    // ï¿½Ê¿ï¿½ï¿½Ñµï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½é¸®ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½
+    // If call this function than a chest is shaked and then the chest is opened. I can't download hangul so add it.
     public void Shakeit()
     {
         Debug.Log("Shakeit has started");
