@@ -39,6 +39,7 @@ public class GuidedWeaponBehaviour : ProjectileBehaviourScript
 
     private void SetTarget(Monster target)
     {
+        if (target == null) return;
         movement.SetTarget(target.transform);
     }
 

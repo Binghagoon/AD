@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "R3CR90KM0XN",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "R3CR90KM0XN",
+        "name": "com.DefaultCompany.AutoDefence",
+        "processId": 6681,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -37,6 +37,12 @@
             "name": "com.DefaultCompany.AutoDefence",
             "processId": 3164,
             "exited": true
+        },
+        {
+            "deviceId": "R3CR90KM0XN",
+            "name": "com.DefaultCompany.AutoDefence",
+            "processId": 6681,
+            "exited": false
         }
     ],
     "m_Tags": {

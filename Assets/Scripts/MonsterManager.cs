@@ -23,9 +23,9 @@ public class MonsterManager : MonoBehaviour
     }
 
     // 죽지 않은 몬스터를 반환하는 함수
-    public List<Monster> getMonsters()
+    public IEnumerable<Monster> getMonsters()
     {
-        return new List<Monster>(monsters);
+        return monsters;
     }
 
     // a, b are vetices of the square
