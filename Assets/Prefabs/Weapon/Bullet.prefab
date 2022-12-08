@@ -114,6 +114,7 @@ MonoBehaviour:
   Attack: 10
   AttackCount: 1
   LifeTime: 10
+  CollisionEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!114 &495182214848038482
 MonoBehaviour:
   m_ObjectHideFlags: 0
