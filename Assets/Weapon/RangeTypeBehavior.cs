@@ -64,6 +64,7 @@ public class RangeTypeBehavior : WeaponBehaviour
         {
             timer -= AttackDelay;
             AttackDelay = GetNextDelay();
+            Debug.Log("BEfore Attack");
             AttackInRange();
         }
     }

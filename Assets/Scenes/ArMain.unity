@@ -382,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: MaxEquipCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.size
@@ -393,16 +393,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
+      propertyPath: equipDatas.Array.data[2].ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[0].icon
       value: 
       objectReference: {fileID: 21300000, guid: ddf2e76e8a1f88f46ae1e42277850b48, type: 3}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[0].info
-      value: Missile
+      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[0].name
-      value: Missile
+      value: GUn
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[1].icon
@@ -422,16 +426,16 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ddf2e76e8a1f88f46ae1e42277850b48, type: 3}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[2].info
-      value: Bullet
+      value: Attack Around Player Every 2Seconds
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[2].name
-      value: Bullet
+      value: RangeAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 132654, guid: f61205723684b2449a84b1c4c7a2cd2b, type: 3}
+      objectReference: {fileID: 3938253076988050608, guid: 27191a82672c4b94fb53a2eed5bb8206, type: 3}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[1].prefab
       value: 
@@ -439,13 +443,17 @@ PrefabInstance:
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[2].prefab
       value: 
-      objectReference: {fileID: 495182214848038481, guid: af55ed82c819aa145bd2e5284ccbe545, type: 3}
+      objectReference: {fileID: 3639311241370711166, guid: 9b6c136d5f6e5304a9c81f748a966dea, type: 3}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[0].isValid
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
       propertyPath: equipDatas.Array.data[1].isValid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476226421042413799, guid: 9e7a6de97796f9046ba9a6d7bd642ac4, type: 3}
+      propertyPath: equipDatas.Array.data[2].isValid
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
