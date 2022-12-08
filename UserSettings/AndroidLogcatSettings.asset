@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R3CR90KM0XN",
+    "m_SelectedDeviceId": "R3CN2033PDV",
     "m_SelectedPackage": {
-        "deviceId": "R3CR90KM0XN",
+        "deviceId": "R3CN2033PDV",
         "name": "com.DefaultCompany.AutoDefence",
-        "processId": 6681,
+        "processId": 32598,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "R3CR90KM0XN",
             "name": "com.DefaultCompany.AutoDefence",
             "processId": 6681,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CN2033PDV",
+            "name": "com.DefaultCompany.AutoDefence",
+            "processId": 32598,
             "exited": false
         }
     ],
