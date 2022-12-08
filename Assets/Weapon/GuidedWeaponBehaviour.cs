@@ -11,6 +11,8 @@ public class GuidedWeaponBehaviour : ProjectileBehaviourScript
     int AttackCount = 1;
     [SerializeField]
     float LifeTime = 10;
+    [SerializeField]
+    GameObject CollisionEffect = null;
 
     bool isHit = false;
     WeaponMovement movement;
@@ -52,6 +54,12 @@ public class GuidedWeaponBehaviour : ProjectileBehaviourScript
     {
         base.OnHitTarget();
         AttackCount--;
+        if (CollisionEffect != null)
+        {
+            Instantiate(CollisionEffect, transform.position, transform.rotation);
+        }
+        
+
         if (AttackCount == 0)
         {
 

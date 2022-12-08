@@ -127,3 +127,4 @@ MonoBehaviour:
   Attack: 10
   AttackCount: 1
   LifeTime: 10
+  CollisionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
