@@ -62,6 +62,7 @@ MonoBehaviour:
   Attack: 10
   AttackDelayCycle:
   - 2
+  CollisionEffect: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}
 --- !u!114 &3639311241370711167
 MonoBehaviour:
   m_ObjectHideFlags: 0

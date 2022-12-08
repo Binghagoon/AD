@@ -25,6 +25,9 @@ public class RangeTypeBehavior : WeaponBehaviour
 
     bool isAttacked = false;
 
+    [SerializeField]
+    GameObject CollisionEffect = null;
+
     private float GetNextDelay()
     {
         nextDelay %= AttackDelayCycle.Length;
@@ -74,6 +77,10 @@ public class RangeTypeBehavior : WeaponBehaviour
         foreach(Monster m in OnRangeMonsters)
         {
             DamageToMonster(m,Attack);
+            if (CollisionEffect != null)
+            {
+                Instantiate(CollisionEffect, transform.position, transform.rotation);
+            }
         }
     }
 
