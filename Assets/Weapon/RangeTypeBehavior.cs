@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+enum AttackType
+{
+}
+
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(WeaponMovement))]
@@ -52,12 +56,6 @@ public class RangeTypeBehavior : WeaponBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAttacked)
-        {
-            attackCount = 0;
-            isAttacked = false;
-        }
-
         movement.MoveToTarget(Time.deltaTime,null);
 
         timer += Time.deltaTime;
@@ -74,8 +72,7 @@ public class RangeTypeBehavior : WeaponBehaviour
     {
         foreach(Monster m in OnRangeMonsters)
         {
-            Destroy(m.gameObject);//TODO:
-            //m.OnDamage(Attack);
+            DamageToMonster(m,Attack);
         }
     }
 

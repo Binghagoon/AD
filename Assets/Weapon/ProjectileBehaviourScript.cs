@@ -7,11 +7,14 @@ public class ProjectileBehaviourScript : WeaponBehaviour
 {
     protected Monster target;
     protected bool IsLaunched;
+    protected MonsterManager monsterManager;
+
     public override void StartAttack()
     {
         FindTarget();
 
         IsLaunched = true;
+        monsterManager = FindObjectOfType<MonsterManager>();
     }
 
     public override void StopAttack()
@@ -23,7 +26,18 @@ public class ProjectileBehaviourScript : WeaponBehaviour
     {
         //TODO:
         // Find Monster
-        Monster[] tgs = FindObjectsOfType<Monster>();
+        IEnumerable<Monster> tgs;
+        if (monsterManager == null)
+        {
+            Debug.Log("AD| Find Monster By Engine");
+            tgs = FindObjectsOfType<Monster>();
+        }
+        else
+        {
+            Debug.Log("AD| Find Monster By MonsterManager");
+            tgs = monsterManager.getMonsters();
+        }
+            
         foreach (Monster t in tgs)
         {
             if (t.IsValide)
@@ -33,7 +47,7 @@ public class ProjectileBehaviourScript : WeaponBehaviour
             }
         }
 
-        Debug.Log(target);
+        //Debug.Log(target);
     }
 
     /// <summary>
@@ -41,10 +55,10 @@ public class ProjectileBehaviourScript : WeaponBehaviour
     /// </summary>
     protected virtual void OnHitTarget()
     {
-        Debug.Log("OnHitTarget");
-        //target.OnDamage(Attack); //todo
-        Destroy(target.gameObject); //TMP
-        Debug.Log("OnHitTarget2");
+        Debug.Log("AD| OnHitTarget");
+
+        DamageToMonster(target, Attack);
+        Debug.Log("AD| OnHitTarget2");
 
     }
 
@@ -61,19 +75,11 @@ public class ProjectileBehaviourScript : WeaponBehaviour
         {
             //OnHit
             //isHit = true;
-            OnHitTarget();
+            if (target.IsValide)
+            {
+                OnHitTarget();
+            }
+            
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

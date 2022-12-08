@@ -7,7 +7,7 @@ public class MonsterManager : MonoBehaviour
     public bool spawnerActive = false;
     [SerializeField]
     GameObject player;
-    List<Monster> monsters = new List<Monster>();
+    HashSet<Monster> monsters = new HashSet<Monster>();
     [SerializeField]
     GameObject[] monsterPrefab;
     [SerializeField]

@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  speed: 3
+  speed: 0.3
 --- !u!1 &7917037412175028715
 GameObject:
   m_ObjectHideFlags: 0

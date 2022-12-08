@@ -113,5 +113,6 @@ MonoBehaviour:
   LaunchPositions:
   - {fileID: 8441299979539040284}
   - {fileID: 8441299979625752121}
-  LaunchDelay: 2
+  LaunchDelayCycle:
+  - 1
   NumberOfLaunchAtOnce: 2

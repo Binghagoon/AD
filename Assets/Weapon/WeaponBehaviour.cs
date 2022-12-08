@@ -15,4 +15,10 @@ public abstract class WeaponBehaviour : MonoBehaviour
     {
         Attack = attack;
     }
+
+    protected void DamageToMonster(Monster m,int _Attack)
+    {
+        //Destroy(m.gameObject);//TODO:
+        m.OnDamage(_Attack);
+    }
 }

@@ -58,6 +58,10 @@ public class LauncherBehaviour : WeaponBehaviour
 
             WeaponBehaviour newweapon = Instantiate(prefeb, next).GetComponent<WeaponBehaviour>();
 
+            Debug.Log("AD| Weapon Spawned");
+            Debug.Log(string.Format("AD| {0}", newweapon.name));
+            //Debug.Log(newweapon.transform.position);
+
             newweapon.SetAttack(Attack);
 
         }

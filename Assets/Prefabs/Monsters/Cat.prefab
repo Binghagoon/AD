@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  speed: 2
+  speed: 0.3
 --- !u!1 &5949663006961299222
 GameObject:
   m_ObjectHideFlags: 0

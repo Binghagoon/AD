@@ -26,13 +26,21 @@ public class Monster : MonoBehaviour
 
     public void OnDamage(int damage)
     {
+        Debug.Log(string.Format("AD| HP| before : {0} ", hp));
         hp -= damage;
-        if (hp <= 0)
+        Debug.Log(string.Format("AD| HP| after : {0}", hp));
+
+        if (hp < 0)
         {
-            anim.SetInteger("Walk", 0);
+            //anim.SetInteger("Walk", 0);
             //anim.SetTrigger("Die");
-            manager.removeMonster(this);
-            Destroy(gameObject, 2f);
+            Debug.Log(manager);
+            if (manager!= null) manager.removeMonster(this);
+            Destroy(gameObject);
+
+            Debug.Log(this);
+            Debug.Log(string.Format("AD| Destroyed"));
+
             isValide = false;
         }
     }
@@ -40,7 +48,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.transform);
+        if (player != null ) transform.LookAt(player.transform);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
